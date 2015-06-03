@@ -1,0 +1,35 @@
+{
+  "name": "koco-image-loader",
+  "version": "0.1.0",
+  "homepage": "https://github.com/cbcrc/koco-image-loader",
+  "authors": [
+    "malikov <vincent.maliko@cbc.ca>"
+  ],
+  "description": "An image loader component",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "koco",
+    "imageloader",
+    "image-loader",
+    "imgLoader",
+    "img-loader",
+    "load",
+    "images",
+    "koco-image-loader",
+    "loader"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "^3.2.0",
+    "jquery": "^2.1.3"
+  }
+}
