@@ -24,16 +24,17 @@ This image loader component allows for placing a default image while it checks f
 ## Include image-loader tag with params
 ``` html
   <!-- 
-    default params : 
+    params : 
       - width = 256
       - height = 256
+      - src = {image src}
       - defaultImgClassName = 'default-img'
       - errorOptions = {
           className : 'error',
           display : true
         }
   -->
-  <image-loader params="width:100, height:100">
+  <image-loader params="width:100, height:100, src= '{image url}'">
     
   </image-loader>
 ``` 
@@ -60,7 +61,7 @@ Don't forget to pass the appropriate parameters to image-loader
 ``` html
   <image-loader 
     class="custom-style" 
-    params="defaultImgClassName: 'custom-lazy-default-img', errorOptions: {className :  'custom-error'} ">
+    params="src: '{image url}', defaultImgClassName: 'custom-lazy-default-img', errorOptions: {className :  'custom-error'} ">
     
   </image-loader>
 ```
