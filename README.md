@@ -60,7 +60,7 @@ Don't forget to pass the appropriate parameters to image-loader
 ``` html
   <image-loader 
     class="custom-style" 
-    params="lazyLoadClassName: 'custom-lazy-default-img', errorOptions: {className :  'custom-error'} ">
+    params="defaultImgClassName: 'custom-lazy-default-img', errorOptions: {className :  'custom-error'} ">
     
   </image-loader>
 ```
