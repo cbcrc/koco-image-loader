@@ -18,7 +18,7 @@ This image loader component allows for placing a default image while it checks f
 ```
 ``` less
   // style.less
-  @import "../bower_components/koco-image-loader/src/koco-image-loader.less";
+  @import "../bower_components/koco-image-loader/src/image-loader.less";
 ```
 
 ## Include image-loader tag with params
