@@ -30,7 +30,7 @@ This image loader component allows for placing a default image while it checks f
       - src = {image src}
       - defaultImgClassName = 'default-img'
       - errorOptions = {
-          className : 'error',
+          className : 'default-error',
           display : true
         }
   -->
