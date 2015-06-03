@@ -1,4 +1,4 @@
-define(['text!./koco-image-loader.html', 'jquery', 'knockout'],
+define(['text!./image-loader.html', 'jquery', 'knockout'],
     function(template, $, ko) {
         'use strict';
 

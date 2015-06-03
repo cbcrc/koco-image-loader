@@ -6,6 +6,7 @@
     "malikov <vincent.maliko@cbc.ca>"
   ],
   "description": "An image loader component",
+  "main": "src/image-loader-ui.js",
   "moduleType": [
     "amd"
   ],
