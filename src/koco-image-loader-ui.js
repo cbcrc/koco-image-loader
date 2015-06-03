@@ -36,8 +36,7 @@ define(['text!./koco-image-loader.html', 'jquery', 'knockout'],
             $element.css('width', options.width);
             $element.css('height', options.height);
 
-            // we check the status of this image before applying lazy loading. 
-            // if the image is available call lazyload
+            // we check the status of this image
             var img = $('<img />').load(function() {
                     $element.removeClass(options.defaultImgClassName);
                     $element.html(img);
