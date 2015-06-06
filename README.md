@@ -29,7 +29,7 @@ This image loader component allows for placing a default image while it checks f
       - height = 256
       - src = {image src}
       - defaultImgClassName = 'default-img'
-      - errorOptions = {
+      - error = {
           className : 'default-error',
           display : true
         }
@@ -61,7 +61,7 @@ Don't forget to pass the appropriate parameters to image-loader
 ``` html
   <image-loader 
     class="custom-style" 
-    params="src: '{image url}', defaultImgClassName: 'custom-lazy-default-img', errorOptions: {className :  'custom-error'} ">
+    params="src: '{image url}', defaultImgClassName: 'custom-lazy-default-img', error: {className :  'custom-error'} ">
     
   </image-loader>
 ```
