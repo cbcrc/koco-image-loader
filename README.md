@@ -33,6 +33,7 @@ This image loader component allows for placing a default image while it checks f
           className : 'default-error',
           display : true
         }
+      - autoRatio = false // if set to true the height will be set automatically
   -->
   <image-loader params="width:100, height:100, src= '{image url}'">
     

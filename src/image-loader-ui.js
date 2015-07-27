@@ -28,7 +28,8 @@ define(['text!./image-loader.html', 'jquery', 'knockout'],
                 error: {
                     className: 'default-error',
                     display: false
-                }
+                },
+                autoRatio: false
             }, params);
 
             var $element = $(componentInfo.element);
@@ -44,11 +45,22 @@ define(['text!./image-loader.html', 'jquery', 'knockout'],
                     $element.removeClass(options.defaultImgClassName);
                     $element.html(img);
 
-                    $(img).attr('width', options.width);
-                    $(img).attr('height', options.height);
+                    var imgWidth = options.width;
+                    var imgHeight = options.height;
+
+                    if (options.autoRatio) {
+                        var oWidth = img.width();
+                        var oHeight = img.height();
+
+                        imgHeight =  oHeight / oWidth * options.width;
+                        $element.css('height', imgHeight);
+                    }
+
+                    $(img).attr('width', imgWidth);
+                    $(img).attr('height', imgHeight);
                 })
                 .error(function(jqXHR, error, errorThrown) {
-                    if(options.error.display){
+                    if (options.error.display) {
                         $element.removeClass(options.defaultImgClassName);
                         $element.addClass(options.error.className);
 
