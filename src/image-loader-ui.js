@@ -1,89 +1,89 @@
 // Copyright (c) CBC/Radio-Canada. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-define(['text!./image-loader.html', 'jquery', 'knockout'],
-    function(template, $, ko) {
-        'use strict';
+import template from 'text!./image-loader.html';
+import $ from 'jquery';
+import ko from 'knockout';
 
-        /**
-         * Constructor
-         *
-         * @param {Object} params - The parameters passed to the imageLoader
-         * @param {Object} params.width - default width of the image (optional)
-         * @param {Object} params.height - default height of the image (optional)
-         * @param {Object} params.defaultImgClassName - default className for the blank image (optional)
-         * @param {Object} params.errorOptions - 
-         *
-         * @param {Object} componentInfo - Information on the component (its DOM element, name etc...)
-         * 
-         */
-        var KocoImageLoader = function(params, componentInfo) {
 
-            // componentInfo contains info of the DOM
-            var options = $.extend({
-                width: 256,
-                height: 256,
-                src: null,
-                defaultImgClassName: 'default-img',
-                error: {
-                    className: 'default-error',
-                    display: false
-                },
-                autoRatio: false
-            }, params);
+/**
+ * Constructor
+ *
+ * @param {Object} params - The parameters passed to the imageLoader
+ * @param {Object} params.width - default width of the image (optional)
+ * @param {Object} params.height - default height of the image (optional)
+ * @param {Object} params.defaultImgClassName - default className for the blank image (optional)
+ * @param {Object} params.errorOptions - 
+ *
+ * @param {Object} componentInfo - Information on the component (its DOM element, name etc...)
+ * 
+ */
+var KocoImageLoader = function(params, componentInfo) {
 
-            var $element = $(componentInfo.element);
+    // componentInfo contains info of the DOM
+    var options = $.extend({
+        width: 256,
+        height: 256,
+        src: null,
+        defaultImgClassName: 'default-img',
+        error: {
+            className: 'default-error',
+            display: false
+        },
+        autoRatio: false
+    }, params);
 
-            // this classname allows for adding the default image through css
-            $element.addClass(options.defaultImgClassName);
+    var $element = $(componentInfo.element);
 
-            $element.css('width', options.width);
-            $element.css('height', options.height);
+    // this classname allows for adding the default image through css
+    $element.addClass(options.defaultImgClassName);
 
-            // we check the status of this image
-            var img = $('<img />').load(function() {
-                    $element.removeClass(options.defaultImgClassName);
-                    $element.html(img);
+    $element.css('width', options.width);
+    $element.css('height', options.height);
 
-                    var imgWidth = options.width;
-                    var imgHeight = options.height;
+    // we check the status of this image
+    var img = $('<img />').load(function() {
+            $element.removeClass(options.defaultImgClassName);
+            $element.html(img);
 
-                    if (options.autoRatio) {
-                        var oWidth = img.width();
-                        var oHeight = img.height();
+            var imgWidth = options.width;
+            var imgHeight = options.height;
 
-                        imgHeight =  oHeight / oWidth * options.width;
-                        $element.css('height', imgHeight);
-                    }
+            if (options.autoRatio) {
+                var oWidth = img.width();
+                var oHeight = img.height();
 
-                    $(img).attr('width', imgWidth);
-                    $(img).attr('height', imgHeight);
-                })
-                .error(function(jqXHR, error, errorThrown) {
-                    if (options.error.display) {
-                        $element.removeClass(options.defaultImgClassName);
-                        $element.addClass(options.error.className);
+                imgHeight = oHeight / oWidth * options.width;
+                $element.css('height', imgHeight);
+            }
 
-                        if (jqXHR.status && jqXHR.status == 404) {
-                            // at this point display a message
+            $(img).attr('width', imgWidth);
+            $(img).attr('height', imgHeight);
+        })
+        .error(function(jqXHR, error, errorThrown) {
+            if (options.error.display) {
+                $element.removeClass(options.defaultImgClassName);
+                $element.addClass(options.error.className);
 
-                        } else {
-                            // at this point display a message
-                        }
-                    }
-                })
-                .attr('src', ko.unwrap(options.src));
+                if (jqXHR.status && jqXHR.status == 404) {
+                    // at this point display a message
 
-        };
-
-        KocoImageLoader.prototype.dispose = function() {};
-
-        return {
-            viewModel: {
-                createViewModel: function(params, componentInfo) {
-                    return new KocoImageLoader(params, componentInfo);
+                } else {
+                    // at this point display a message
                 }
-            },
-            template: template
-        };
-    });
+            }
+        })
+        .attr('src', ko.unwrap(options.src));
+
+};
+
+KocoImageLoader.prototype.dispose = function() {};
+
+export default {
+    viewModel: {
+        createViewModel: function(params, componentInfo) {
+            return new KocoImageLoader(params, componentInfo);
+        }
+    },
+    template: template
+};
