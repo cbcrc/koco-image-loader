@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _imageLoader = require('text!./image-loader.html');
-
-var _imageLoader2 = _interopRequireDefault(_imageLoader);
-
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -30,6 +26,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @param {Object} componentInfo - Information on the component (its DOM element, name etc...)
  * 
  */
+// Copyright (c) CBC/Radio-Canada. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 var KocoImageLoader = function KocoImageLoader(params, componentInfo) {
 
     // componentInfo contains info of the DOM
@@ -84,8 +83,7 @@ var KocoImageLoader = function KocoImageLoader(params, componentInfo) {
                 }
         }
     }).attr('src', _knockout2.default.unwrap(options.src));
-}; // Copyright (c) CBC/Radio-Canada. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+};
 
 KocoImageLoader.prototype.dispose = function () {};
 
@@ -95,5 +93,5 @@ exports.default = {
             return new KocoImageLoader(params, componentInfo);
         }
     },
-    template: _imageLoader2.default
+    template: template
 };
